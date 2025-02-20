@@ -1,0 +1,52 @@
+how to make .exe from .jar
+
+jpackage --name Ritmic `
+>>     --input target `
+>>     --main-jar Ritmic-1.0-SNAPSHOT.jar `
+>>     --main-class com.example.ritmic.Launcher `
+>>     --type exe `
+>>     --runtime-image jdk-21.0.6.7-hotspot `
+>>     --icon src/main/resources/images/logo.ico `
+>>     --app-version 1.0 `
+>>     --java-options "--module-path javafx-sdk-23.0.2/lib --add-modules javafx.controls,javafx.fxml"
+
+jlink --module-path "C:\Users\Ghaster\IdeaProjects\RitmicPrototype\javafx-sdk-23.0.2\lib";"C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot\jmods" `
+      --add-modules java.base,javafx.controls,javafx.fxml `
+      --output runtime
+
+
+jpackage --name Ritmic `
+>>     --input target `
+>>     --main-jar Ritmic-1.0-SNAPSHOT.jar `
+>>     --main-class com.example.ritmic.Launcher `
+>>     --type msi `
+>>     --runtime-image runtime `
+>>     --icon src/main/resources/images/logo.ico `
+>>     --app-version 1.0 `
+>>     --java-options "--module-path javafx-sdk-23.0.2/lib --add-modules javafx.controls,javafx.fxml"
+
+
+jlink --module-path "C:\Users\Ghaster\IdeaProjects\RitmicPrototype\javafx-jmods-23.0.2;C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot\jmods" --add-modules java.base,javafx.controls,javafx.fxml,javafx.graphics --output runtime
+
+jpackage --name Ritmic `
+    --input target `
+    --main-jar Ritmic-1.0-SNAPSHOT.jar `
+    --main-class com.example.ritmic.Launcher `
+    --type msi `
+    --runtime-image runtime `
+    --icon src/main/resources/images/logo.ico `
+    --app-version 1.0 `
+    --verbose
+
+
+
+    jlink --module-path "C:\Users\Ghaster\IdeaProjects\RitmicPrototype\javafx-jmods-23.0.2;C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot\jmods" `
+          --add-modules java.base,javafx.controls,javafx.fxml,javafx.graphics `
+          --output runtime
+
+
+java --module-path "C:\Users\Ghaster\IdeaProjects\RitmicPrototype\javafx-sdk-23.0.2\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics -jar app/Ritmic-1.0-SNAPSHOT.jar
+
+jlink --module-path "C:\Users\Ghaster\IdeaProjects\RitmicPrototype\javafx-jmods-23.0.2;C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot\jmods" `
+      --add-modules javafx.controls,javafx.fxml,javafx.graphics `
+      --output runtime

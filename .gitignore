@@ -21,3 +21,4 @@ Thumbs.db
 # Ignore JavaFX and JDK folders
 javafx-sdk-23.0.2/
 jdk-21.0.6.7-hotspot/
+javafx-jmods-23.0.2/
