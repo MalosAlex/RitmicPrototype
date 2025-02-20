@@ -1,0 +1,23 @@
+# Ignore compiled files
+target/
+build/
+
+# Ignore IntelliJ IDEA settings
+.idea/
+*.iml
+
+# Ignore Eclipse settings
+.classpath
+.project
+.settings/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore JavaFX and JDK folders
+javafx-sdk-23.0.2/
+jdk-21.0.6.7-hotspot/
